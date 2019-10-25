@@ -1,0 +1,4 @@
+com\cslg\entity\Employees.class
+com\cslg\utils\Conn.class
+com\cslg\entity\Employee.class
+com\cslg\sql\SqlOperator.class
