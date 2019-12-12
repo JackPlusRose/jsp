@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="globalMessage"></constant>
+    <constant name="struts.i18n.encoding" value="utf-8"></constant>
+    <package name="helloworld" extends="struts-default">
+        <action name="hello" class="cn.cslg.action.UserAction" method="execute">
+            <result name="success">/success.jsp</result>
+            <result name="error">/failure.jsp</result>
+        </action>
+        <action name="register" class="cn.cslg.action.RegisterAciton" method="execute">
+            <result name="success">/2-6-success.jsp</result>
+            <result name="error">/failure.jsp</result>
+        </action>
+        <action name="ioc" class="cn.cslg.action.IocUserAction">
+            <result name="success">/success.jsp</result>
+            <result name="error">/failure.jsp</result>
+        </action>
+        <action name="numb" class="cn.cslg.action.NumbAction" method="execute">
+            <result name="success">/numbs.jsp</result>
+        </action>
+        <action name="checkLogin" class="cn.cslg.action.LoginAction">
+            <result name="success">/2-5-success.jsp</result>
+            <result name="error">/2-5-login.jsp</result>
+        </action>
+        <action name="upload" class="cn.cslg.action.UploadAction">
+            <param name="savePath">/save</param>
+            <result name="success">/fileUpSuccess.jsp</result>
+            <result name="error">/fileUp.jsp</result>
+        </action>
+        <action name="download" class="cn.cslg.action.FileDownloadAction">
+            <result name="success" type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="contentDisposition">attachment;fileName="${fileName}"</param>
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+    </package>
+    
+</struts>
