@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <include file="example.xml"/>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="lookMessageAction" class="cn.cslg.action.LookMessageAction">
+            <result name="success">/student/lookMessage.jsp</result>
+            <result name="input">/student/index.jsp</result>
+        </action>
+        <action name="addMessageAction" class="cn.cslg.action.AddMessageAction">
+            <result name="success" type="chain">lookMessageAction</result>
+            <result name="input">/student/addMessage.jsp</result>
+        </action>
+        <action name="findMessageAction" class="cn.cslg.action.FindMessageAction">
+            <result name="success">/student/updateMessage.jsp</result>
+            <result name="input">/student/findMessage.jsp</result>
+        </action>
+        <action name="updateMessageAction" class="cn.cslg.action.UpdateMessageAction">
+            <result name="success" type="chain">lookMessageAction</result>
+            <result name="input">/student/updateMessage.jsp</result>
+        </action>
+        <action name="deleteMessageAction" class="cn.cslg.action.DeleteMessageAction">
+            <result name="success" type="chain">lookMessageAction</result>
+            <result name="input">/student/deleteMessage.jsp</result>
+        </action>
+    </package>
+</struts>
